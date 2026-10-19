@@ -1,0 +1,26 @@
+{
+ "wirefed": {
+  "noise_pooled_without_folding": {
+   "noise_rms": 0.1007,
+   "D_ceiling": 0.6757755181935456,
+   "M_median_ceiling": 0.775664083061714
+  },
+  "noise_measured": {
+   "noise_rms": 0.0266,
+   "D_ceiling": 0.9660424085896252,
+   "M_median_ceiling": 0.9797238642824716
+  }
+ },
+ "autogenous": {
+  "noise_pooled_without_folding": {
+   "noise_rms": 0.0442,
+   "D_ceiling": 0.5479830024947073,
+   "M_median_ceiling": 0.6519786012005894
+  },
+  "noise_measured": {
+   "noise_rms": 0.0221,
+   "D_ceiling": 0.757673184833148,
+   "M_median_ceiling": 0.8593045661339148
+  }
+ }
+}

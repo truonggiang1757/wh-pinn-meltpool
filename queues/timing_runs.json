@@ -1,0 +1,171 @@
+[
+ {
+  "name": "E6/autogenous/final/s1",
+  "variant": "final",
+  "over": {
+   "case": "autogenous",
+   "seed": 1
+  }
+ },
+ {
+  "name": "E6/autogenous/final/s42",
+  "variant": "final",
+  "over": {
+   "case": "autogenous"
+  }
+ },
+ {
+  "name": "E6/wirefed/baseline/s1",
+  "variant": "baseline",
+  "over": {
+   "seed": 1
+  }
+ },
+ {
+  "name": "E6/wirefed/baseline/s42",
+  "variant": "baseline",
+  "over": {}
+ },
+ {
+  "name": "E6/wirefed/cao16/s1",
+  "variant": "cao16",
+  "over": {
+   "seed": 1
+  }
+ },
+ {
+  "name": "E6/wirefed/cao16/s42",
+  "variant": "cao16",
+  "over": {}
+ },
+ {
+  "name": "E6/wirefed/final/s1",
+  "variant": "final",
+  "over": {
+   "seed": 1
+  }
+ },
+ {
+  "name": "E6/wirefed/final/s42",
+  "variant": "final",
+  "over": {}
+ },
+ {
+  "name": "E6/wirefed/final_config/s1",
+  "variant": "final",
+  "over": {
+   "balancing": "config",
+   "seed": 1
+  }
+ },
+ {
+  "name": "E6/wirefed/final_config/s42",
+  "variant": "final",
+  "over": {
+   "balancing": "config"
+  }
+ },
+ {
+  "name": "E6/wirefed/final_mmlp/s1",
+  "variant": "final",
+  "over": {
+   "backbone": "modified_mlp",
+   "seed": 1
+  }
+ },
+ {
+  "name": "E6/wirefed/final_mmlp/s42",
+  "variant": "final",
+  "over": {
+   "backbone": "modified_mlp"
+  }
+ },
+ {
+  "name": "E6/wirefed/wf/s1",
+  "variant": "wf",
+  "over": {
+   "seed": 1
+  }
+ },
+ {
+  "name": "E6/wirefed/wf/s42",
+  "variant": "wf",
+  "over": {}
+ },
+ {
+  "name": "E6t/wirefed/baseline/s1",
+  "variant": "baseline",
+  "over": {
+   "seed": 1
+  }
+ },
+ {
+  "name": "E6t/wirefed/baseline/s2",
+  "variant": "baseline",
+  "over": {
+   "seed": 2
+  }
+ },
+ {
+  "name": "E6t/wirefed/baseline/s42",
+  "variant": "baseline",
+  "over": {}
+ },
+ {
+  "name": "E6t/wirefed/cao16/s1",
+  "variant": "cao16",
+  "over": {
+   "seed": 1
+  }
+ },
+ {
+  "name": "E6t/wirefed/cao16/s2",
+  "variant": "cao16",
+  "over": {
+   "seed": 2
+  }
+ },
+ {
+  "name": "E6t/wirefed/cao16/s42",
+  "variant": "cao16",
+  "over": {}
+ },
+ {
+  "name": "E6t/wirefed/final/s1",
+  "variant": "final",
+  "over": {
+   "seed": 1
+  }
+ },
+ {
+  "name": "E6t/wirefed/final/s2",
+  "variant": "final",
+  "over": {
+   "seed": 2
+  }
+ },
+ {
+  "name": "E6t/wirefed/final/s42",
+  "variant": "final",
+  "over": {}
+ },
+ {
+  "name": "E6t/wirefed/wf/s1",
+  "variant": "wf",
+  "over": {
+   "seed": 1
+  }
+ },
+ {
+  "name": "E6t/wirefed/wf/s2",
+  "variant": "wf",
+  "over": {
+   "seed": 2
+  }
+ },
+ {
+  "name": "E6t/wirefed/wf/s42",
+  "variant": "wf",
+  "over": {}
+ }
+]

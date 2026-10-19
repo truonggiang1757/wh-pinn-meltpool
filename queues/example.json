@@ -1,0 +1,4 @@
+[
+ {"name": "example/wirefed/final/s42", "variant": "final", "over": {"case": "wirefed", "seed": 42}},
+ {"name": "example/autogenous/final/s42", "variant": "final", "over": {"case": "autogenous", "seed": 42}}
+]

@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+# large data: downloaded or generated (see data/README.md)
+data/observations/*/frames.npz
+data/observations/*/flow_symmetric/
+data/observations/*/flow_corrected/
+data/synthetic_obs/
+# generated
+figures/*.png
+claims/
+runs_new/
+runs/example/
