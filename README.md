@@ -144,7 +144,35 @@ Switches set through a queue entry's `over`:
 ## Notes
 
 - **Timing.** The small strong-form models (the baseline and the formulation of [19]) are limited by CPU-side overhead. Their training time therefore depends on the CPU clock, and only times measured in one session should be compared (`results/timing.json`).
-- **Preprocessing.** The video-to-observation pipeline (masking, RAFT optical flow, homography calibration, symmetrization) is steps 0–3 of the public code of [19], [github.com/YueCaoUKY/Molten-Pool-Flow-Detection-via-PINN](https://github.com/YueCaoUKY/Molten-Pool-Flow-Detection-via-PINN). The only change is in step 2: the pool contour is extracted with `cv2.CHAIN_APPROX_NONE` instead of `CHAIN_APPROX_SIMPLE`. The raw high-speed videos are available from the corresponding authors on reasonable request.
+
+## From video to observations (preprocessing)
+
+The observations in `data/observations/` were made from the high-speed videos with steps 0–3 of the public code of [19], [github.com/YueCaoUKY/Molten-Pool-Flow-Detection-via-PINN](https://github.com/YueCaoUKY/Molten-Pool-Flow-Detection-via-PINN). The only change is in step 2, where the pool contour is extracted with `cv2.CHAIN_APPROX_NONE` instead of `CHAIN_APPROX_SIMPLE`. The raw videos are available from the corresponding authors on reasonable request.
+
+Each case is defined in the `config.py` of that code:
+- video path and pool mask;
+- the true length/width ratio of the pool;
+- frame step 5 and about 100 frames;
+- pixel size 10.53/512 mm and 1500 fps.
+
+| Step | Script | What it does | Interaction |
+|---|---|---|---|
+| 0 | `step0_create_mask.py` | Pool mask from a polygon drawn on one frame (smoothed) | Click points around the pool, Enter to save |
+| 1 | `step1_raft_extraction.py --case <case>` | RAFT optical flow between frames 5 apart, inside the mask → `RAFT_data/flow_raw/` | None |
+| 2 | `step2_calibration.py --case <case>` | Homography that removes the oblique (45°) camera view | Click 4 points at the ends of the pool's length and width axes, then fine-tune rotation, tilt, scale, aspect, shift and the symmetry line with sliders. The live length/width ratio and symmetry score guide the tuning |
+| 3 | `step3_apply_correction.py --case <case>` | Applies the homography to every frame (`flow_corrected/`), then mirrors about the symmetry line, flipping the transverse velocity (`flow_symmetric/`, `mask_symmetric.npy`) | None |
+
+`flow_symmetric/` and `mask_symmetric.npy` are the inputs of this repository. `frames.npz` is the same data, packed.
+
+To reconstruct a new video, run steps 0–3, then point a queue entry at the result:
+
+```json
+{"name": "mine/newpool/final/s42", "variant": "final", "over": {"case": "newpool", "data_dir": "<path>/RAFT_data", "seed": 42}}
+```
+
+A case without particle tracks is evaluated on everything except the PTV metrics.
+
+Before training, check the constants at the top of `src/whpinn.py` (pixel size, frame rate, frame step). Also set `arc_x_frac_measured`, the arc position as a fraction of the pool centreline, to the value measured on your images. The paper uses 0.726 for both pools.
 
 ## Citation
 

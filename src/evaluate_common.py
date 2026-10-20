@@ -29,7 +29,10 @@ def ptv_metrics(pu, pv, mu, mv):
 def eval_ptv(fields, data, case, x_thr_tilde=None):
     """Sample the crop-grid fields at every calibrated PTV observation (same rule as
     PTV/pinn_vs_ptv.py).  If x_thr_tilde is given, also score only the PTV points
-    that lie inside the occluded (arc-side) region x_tilde >= x_thr."""
+    that lie inside the occluded (arc-side) region x_tilde >= x_thr.
+    Cases without particle tracks (e.g. a new video) get no PTV metrics."""
+    if case not in PTV_FILES:
+        return {'filt': {}, 'raw': {}}
     P = np.load(PTV_FILES[case], allow_pickle=True)
     r0, r1, c0, c1 = data['crop']
     col = np.round(P['x_rect_px'] - c0).astype(int); row = np.round(P['y_rect_px'] - r0).astype(int)
